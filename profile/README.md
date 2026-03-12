@@ -19,4 +19,4 @@ Distributed AI inference infrastructure for geo-aware edge compute. Run producti
 
 ## Repositories
 
-- **[zerogpu/docs](https://github.com/zerogpu/docs)** — Documentation (Mintlify)
+- **[zerogpu/docs](https://github.com/zerogpu/docs)** — Documentation 
