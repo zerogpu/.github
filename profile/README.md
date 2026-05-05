@@ -14,7 +14,7 @@ Distributed AI inference infrastructure for geo-aware edge compute. Run producti
 
 | | |
 |--|--|
-| **Documentation** | [zerogpu.mintlify.app](https://zerogpu.mintlify.app) |
+| **Documentation** | [https://docs.zerogpu.ai/](https://docs.zerogpu.ai/) |
 | **Website** | [zerogpu.ai](https://zerogpu.ai) |
 
 ## Repositories
