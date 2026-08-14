@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="https://zerogpu.ai/assets/zerogpu-icon-dark-DB2Jfxq2.png" alt="ZeroGPU" width="140"/>
+  <a href="https://www.zerogpu.ai">
+    <img src="https://avatars.githubusercontent.com/u/242287374?s=200&v=4" alt="ZeroGPU logo" width="140"/>
+  </a>
 </p>
 
 <h1 align="center">ZeroGPU</h1>
@@ -26,8 +28,8 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/zerogpu-api"><img src="https://img.shields.io/npm/v/zerogpu-api?style=flat-square&label=npm" alt="npm version" /></a>
   <a href="https://pypi.org/project/zerogpu-api/"><img src="https://img.shields.io/pypi/v/zerogpu-api?style=flat-square&label=pypi" alt="PyPI version" /></a>
-  <a href="https://github.com/zerogpu/SDK"><img src="https://img.shields.io/github/stars/zerogpu/SDK?style=flat-square&logo=github" alt="SDK repository stars" /></a>
-  <a href="https://github.com/zerogpu/zerogpu-router"><img src="https://img.shields.io/badge/Related-Router-111827?style=flat-square" alt="ZeroGPU Router" /></a>
+  <a href="https://github.com/zerogpu/zerogpu-router"><img src="https://img.shields.io/github/stars/zerogpu/zerogpu-router?style=flat-square&logo=github" alt="Router repository stars" /></a>
+  <a href="https://github.com/zerogpu/SDK"><img src="https://img.shields.io/badge/Related-SDK-111827?style=flat-square" alt="ZeroGPU SDK monorepo" /></a>
 </p>
 
 <p align="center">
@@ -52,11 +54,21 @@
 | | |
 | --- | --- |
 | **Base URL** | `https://api.zerogpu.ai/v1` |
-| **Primary path** | `POST /v1/responses` |
-| **Headers** | `x-api-key`, `x-project-id`, `Content-Type: application/json` |
-| **Reference** | [Responses API](https://docs.zerogpu.ai/api-reference/endpoint/responses) |
+| **Primary paths** | `POST /v1/responses` · `POST /v1/chat/completions` |
+| **Headers** | `x-api-key`, `Content-Type: application/json` (optional: `x-project-id`) |
+| **Reference** | [Responses API](https://docs.zerogpu.ai/api-reference/endpoint/responses) · [Chat completions](https://docs.zerogpu.ai/api-reference/endpoint/chat-completions) |
 
-Set `ZEROGPU_API_KEY` and `ZEROGPU_PROJECT_ID` the same way you do in the platform dashboard snippets. Full authentication, models, and error semantics live in **[docs.zerogpu.ai](https://docs.zerogpu.ai)**.
+```bash
+curl https://api.zerogpu.ai/v1/responses \
+  -H "x-api-key: $ZEROGPU_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "llama-3.1-8b-instruct-fast",
+    "input": "Summarize: NASA announced that its Artemis III mission is now scheduled for late 2026 ..."
+  }'
+```
+
+Set `ZEROGPU_API_KEY` the same way you do in the platform dashboard snippets. Full authentication, models, and error semantics live in **[docs.zerogpu.ai](https://docs.zerogpu.ai)**.
 
 ---
 
@@ -66,10 +78,4 @@ Set `ZEROGPU_API_KEY` and `ZEROGPU_PROJECT_ID` the same way you do in the platfo
 | --- | --- |
 | [**zerogpu/SDK**](https://github.com/zerogpu/SDK) | Official Fern-generated API clients, smoke tests, and publishing workflows for npm/PyPI packages. |
 | [**zerogpu/docs**](https://github.com/zerogpu/docs) | Documentation source and deep links into [docs.zerogpu.ai](https://docs.zerogpu.ai). |
-| [**zerogpu/zerogpu-router**](https://github.com/zerogpu/zerogpu-router) | Router-related components that pair with how traffic and capacity are orchestrated. |
-
----
-
-<p align="center">
-  <sub>ZeroGPU — inference where your users are, not only where the GPUs are.</sub>
-</p>
+| [**zerogpu/zerogpu-router**](https://github.com/zerogpu/zerogpu-router) | Task router for AI agents — Claude Code and OpenClaw plugins that offload summarization, classification, PII redaction, and extraction to nano models via the `zerogpu` CLI, with per-call cost savings. |
